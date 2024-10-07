@@ -1,0 +1,16 @@
+{
+  "name": "typed-utils",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "vitest --typecheck"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vitest": "^2.1.2",
+    "typescript": "^5.6.2"
+  }
+}

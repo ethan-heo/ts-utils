@@ -3,12 +3,16 @@ import {
   Concat,
   Drop,
   Equal,
+  Flat,
   HasTail,
   Head,
+  Join,
   Last,
   Length,
   Prepend,
+  Replace,
   Reverse,
+  Split,
   Tail,
   check,
 } from './index';
@@ -59,5 +63,26 @@ describe(`Array Util Test`, () => {
   });
   it(`Append`, () => {
     wrappedAssertType<Append<[1, 2, 3], 4>, [1, 2, 3, 4]>(Pass);
+  });
+});
+
+describe(`[String]`, () => {
+  it(`Join`, () => {
+    wrappedAssertType<Join<[1, 2, 3, 4, 5], ','>, '1,2,3,4,5'>(Pass);
+    wrappedAssertType<Join<[1], ','>, '1'>(Pass);
+    wrappedAssertType<Join<[], ','>, ''>(Pass);
+  });
+  it(`Replace`, () => {
+    wrappedAssertType<Replace<'abcdefg', 'c', 'z'>, 'abzdefg'>(Pass);
+  });
+  it(`Split`, () => {
+    wrappedAssertType<Split<'ab,cde,fg', ','>, ['ab', 'cde', 'fg']>(Pass);
+  });
+  it(`Flat`, () => {
+    wrappedAssertType<Flat<[1, 2, 3, [4]], 1>, 1 | 2 | 3 | 4>(Pass);
+    wrappedAssertType<Flat<[1, 2, 3, [[4]]], 1>, 1 | 2 | 3 | [4]>(Pass);
+    wrappedAssertType<Flat<[1, 2, 3, [[4]]], 2>, 1 | 2 | 3 | 4>(Pass);
+    wrappedAssertType<Flat<[1, 2, [3, [4]]], 1>, 1 | 2 | 3 | [4]>(Pass);
+    wrappedAssertType<Flat<[1, 2, [3, [4]]], 2>, 1 | 2 | 3 | 4>(Pass);
   });
 });

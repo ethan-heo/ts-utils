@@ -23,8 +23,8 @@ export declare function check<A, B>(params: Equal<Equal<A, B>, 1>): void;
  * @see https://www.youtube.com/@mduniv 마플개발대학 타입 잘 다루기 3/5
  */
 export type Length<T extends any[] | string, P extends any[] = []> = T extends string
-  ? T extends `${infer F}${infer L}`
-    ? Length<L, [...P, any]>
+  ? T extends `${T[0]}${infer L}`
+    ? Length<L, Append<P, any>>
     : P['length']
   : T['length'];
 
@@ -81,3 +81,42 @@ export type Concat<A extends any[], B extends any[]> = [...A, ...B];
  * @see https://www.youtube.com/@mduniv 마플개발대학 타입 잘 다루기 3/5
  */
 export type Append<A extends any[], B extends any> = Concat<A, [B]>;
+
+/**
+ * @description T배열의 요소 사이에 S 문자열을 추가한 문자열을 반환한다.
+ * @see https://www.youtube.com/@mduniv 마플개발대학 타입 잘 다루기 4/5
+ */
+export type Join<T extends any[], S extends string> = Length<T> extends 0
+  ? ''
+  : Length<T> extends 1
+  ? `${T[0]}`
+  : `${T[0]}${S}${Join<Tail<T>, S>}`;
+
+/**
+ * @description T 문자열에서 A가 포함된 문자열이 있으면 B로 교체한다.
+ * @see https://www.youtube.com/@mduniv 마플개발대학 타입 잘 다루기 4/5
+ */
+export type Replace<
+  T extends string,
+  A extends string,
+  B extends string
+> = T extends `${infer P1}${A}${infer P2}` ? Replace<`${P1}${B}${P2}`, A, B> : T;
+
+/**
+ * @description T 문자열에서 S 문자열 기준으로 요소를 나눈 배열을 반환한다.
+ * @see https://www.youtube.com/@mduniv 마플개발대학 타입 잘 다루기 4/5
+ */
+export type Split<
+  T extends string,
+  S extends string,
+  E extends any[] = []
+> = T extends `${infer A}${S}${infer B}` ? Split<B, S, Append<E, A>> : Append<E, T>;
+
+/**
+ * @description T 배열의 인자를 P의 숫자만큼 Flat한 배열로 변환하여 반환한다. *배열 요소에 다른 형식의 값을 넣었을 때 확인이 안됨.*
+ * @see https://www.youtube.com/@mduniv 마플개발대학 타입 잘 다루기 4/5
+ */
+export type Flat<T, P extends number = 1> = {
+  0: T;
+  1: T extends Array<infer A> ? Flat<A, [-1, 0, 1, 2, 3, 4, 5, 6, 7][P]> : T;
+}[P extends -1 ? 0 : 1];

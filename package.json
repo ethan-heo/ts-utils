@@ -1,16 +1,28 @@
 {
-  "name": "typed-utils",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "@ethanheo/ts-utils",
+  "version": "0.0.0",
+  "description": "개인적으로 사용하는 타입스크립트 유틸리티 라이브러리",
+  "main": "index.ts",
   "scripts": {
-    "test": "vitest --typecheck"
+    "test": "vitest --typecheck",
+    "release": "echo 'release'",
+    "publish": "echo 'publish'"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "TypeScript",
+    "Utility"
+  ],
+  "author": "ethan-heo",
+  "repository": {
+    "url": "https://github.com/ethan-heo/ts-utils",
+    "type": "git"
+  },
   "license": "ISC",
+  "peerDependencies": {
+    "typescript": "^5"
+  },
   "devDependencies": {
-    "vitest": "^2.1.2",
-    "typescript": "^5.6.2"
+    "@changesets/cli": "^2.27.9",
+    "vitest": "^2.1.2"
   }
 }

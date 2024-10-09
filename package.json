@@ -6,7 +6,6 @@
   "scripts": {
     "test": "vitest --typecheck",
     "version": "changeset version",
-    "release": "changeset release",
     "publish": "changeset publish"
   },
   "keywords": [

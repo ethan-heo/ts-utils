@@ -31,8 +31,5 @@ jobs:
       - name: Version
         run: npm run version
 
-      - name: Release
-        run: npm run release
-
       - name: Publish
         run: npm run publish

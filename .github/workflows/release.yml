@@ -28,6 +28,12 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
+      - name: Test GITHUB TOKEN
+        run: echo ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Test NPM TOKEN
+        run: echo ${{ secrets.GITHUB_TOKEN }}
+
       - name: Version
         run: npm run version
 

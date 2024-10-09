@@ -1,7 +1,8 @@
 {
   "$schema": "https://unpkg.com/@changesets/config@3.0.3/schema.json",
-  "changelog": "@changesets/cli/changelog",
+  "changelog": ["@changesets/changelog-github", { "repo": "ethan-heo/ts-utils" }],
   "commit": false,
   "access": "public",
-  "baseBranch": "master"
+  "baseBranch": "master",
+  "updateInternalDependencies": "patch"
 }

@@ -5,6 +5,7 @@
   "main": "index.ts",
   "scripts": {
     "test": "vitest --typecheck",
+    "version": "echo 'version'",
     "release": "echo 'release'",
     "publish": "echo 'publish'"
   },

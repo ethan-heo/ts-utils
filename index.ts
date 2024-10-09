@@ -120,5 +120,3 @@ export type Flat<T, P extends number = 1> = {
   0: T;
   1: T extends Array<infer A> ? Flat<A, [-1, 0, 1, 2, 3, 4, 5, 6, 7][P]> : T;
 }[P extends -1 ? 0 : 1];
-
-console.log('actions test');

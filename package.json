@@ -5,6 +5,7 @@
   "main": "index.ts",
   "scripts": {
     "test": "vitest --typecheck",
+    "changeset": "changeset",
     "version": "changeset version",
     "publish": "changeset publish"
   },
@@ -14,7 +15,7 @@
   ],
   "author": "ethan-heo",
   "repository": {
-    "url": "https://github.com/ethan-heo/ts-utils",
+    "url": "git+https://github.com/ethan-heo/ts-utils.git",
     "type": "git"
   },
   "license": "ISC",

@@ -45,6 +45,11 @@ describe(`Array Util Test`, () => {
     wrappedAssertType<HasTail<[1, 2, 3]>, true>(Pass);
     wrappedAssertType<HasTail<[]>, false>(Pass);
   });
+  it(`Drop`, () => {
+    wrappedAssertType<Drop<1, [1, 2, 3]>, [2, 3]>(Pass);
+    wrappedAssertType<Drop<1, [1]>, []>(Pass);
+    wrappedAssertType<Drop<1, []>, []>(Pass);
+  });
   it(`Tail`, () => {
     wrappedAssertType<Tail<[1, 2, 3]>, [2, 3]>(Pass);
     wrappedAssertType<Tail<[1]>, []>(Pass);

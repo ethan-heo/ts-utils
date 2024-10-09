@@ -1,5 +1,11 @@
 # @ethanheo/ts-utils
 
+## 0.3.0
+
+### Minor Changes
+
+- [#5](https://github.com/ethan-heo/ts-utils/pull/5) [`8706057`](https://github.com/ethan-heo/ts-utils/commit/87060571873a3b1979c46e170a9254d996b136f3) Thanks [@ethan-heo](https://github.com/ethan-heo)! - Add Drop test code
+
 ## 0.2.0
 
 ### Minor Changes

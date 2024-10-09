@@ -25,14 +25,14 @@ jobs:
         id: changesets
         uses: changesets/action@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ NPM_PUBLISH.secrets.NPM_PUBGIT_TOKEN }}
+          NPM_TOKEN: ${{ NPM_PUBLISH.secrets.NPM_TOKEN }}
 
       - name: Test GITHUB TOKEN
-        run: echo ${{ secrets.GIT_TOKEN }}
+        run: echo ${{ NPM_PUBLISH.secrets.GIT_TOKEN }}
 
       - name: Test NPM TOKEN
-        run: echo ${{ secrets.NPM_TOKEN }}
+        run: echo ${{ NPM_PUBLISH.secrets.NPM_TOKEN }}
 
       - name: Version
         run: npm run version
